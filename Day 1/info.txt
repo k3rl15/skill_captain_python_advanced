@@ -1,0 +1,63 @@
+Regular expressions (regex)
+
+Concept:
+
+Regular expressions (regex) in Python are a powerful tool for pattern matching and text manipulation. They allow you to search, match, and manipulate strings 
+based on specific patterns.
+
+Anatomy of Python Regular Expressions:
+
+1. Import the `re` module: To use regular expressions in Python, you need to import the `re` module.
+2. Compile the pattern: Use the `re.compile()` function to compile a regular expression pattern into a pattern object.
+3. Match the pattern: Use various functions and methods provided by the `re` module to search for or match patterns in the input text.Some commonly used 
+functions and methods include:
+- re.search(pattern, text): Searches for the pattern anywhere in the text and returns the first match found.
+- re.match(pattern, text): Matches the pattern only at the beginning of the text.
+- `re.findall(pattern, text)`: Returns all non-overlapping matches of the pattern in the text.
+- re.finditer(pattern, text): Returns an iterator yielding match objects for all non-overlapping matches of the pattern in the text.
+
+4. Handle match objects: If a match is found, you can work with the match object to access information about the match.
+Commonly used match object methods include:
+- `group()`: Returns the matched string.
+- `start()`: Returns the starting position of the match.
+- `end()`: Returns the ending position of the match.
+- `span()`: Returns a tuple containing the start and end positions of the match
+
+5. Use pattern elements: Regular expressions consist of various pattern elements that define the search pattern.
+Some commonly used pattern elements include:
+- Literal characters: Match specific characters exactly as they appear.
+- Character classes: Specify a set of characters to match.
+- Quantifiers: Specify the number of occurrences to match.
+- Anchors: Define the position in the input where a match should occur.
+- Groups and capturing: Capture and extract specific parts of a match.
+
+6. Escape special characters: If you want to match special characters as literal characters, you need to escape them using a backslash `\`.
+
+
+
+Here's a simple example that demonstrates the anatomy of Python regular expressions:
+
+        import re
+
+        pattern = re.compile(r'\b\d{3}-\d{3}-\d{4}\b')
+
+        text = 'My phone number is 123-456-7890. Call me anytime.'
+
+        match = pattern.search(text)
+        if match:
+            print('Phone number found:', match.group())
+            print('Starting position:', match.start())
+            print('Ending position:', match.end())
+            print('Match span:', match.span())
+        else:
+            print('Phone number not found.')
+    
+
+In this example, we define a pattern to match phone numbers in the format `XXX-XXX-XXXX`. We compile the pattern using `re.compile()` and then search for a match using `pattern.search()`. If a match is found, we access the matched string and other information using match object methods.
+
+When you run this code, it will output:
+
+        Phone number found: 123-456-7890
+        Starting position: 18
+        Ending position: 30
+        Match span: (18, 30)

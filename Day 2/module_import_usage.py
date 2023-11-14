@@ -1,4 +1,4 @@
-from math_opertions import MathOperations
+from math_opertions_script import MathOperations
 
 # Create an instance of the MathOperations class
 solve = MathOperations()

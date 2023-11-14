@@ -61,6 +61,12 @@ def user_number_inputs(operation):
         accept_inputs = 2
 
     # Get user input with input validation
+    if operation == 'sroot':
+        print("Square Root")
+    elif operation == 'fraction':
+        print("Mixed Number")
+    else:
+        print(f"{operation.capitalize()}")
     while tries < 3:
         try:
             for i in range(accept_inputs):

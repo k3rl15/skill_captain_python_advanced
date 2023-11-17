@@ -1,0 +1,73 @@
+Decorators in Python are a powerful and flexible way to modify or extend the behavior of functions or methods. They allow you to wrap another function, 
+adding some additional functionality before, after, or around the original function.
+
+Here's a simple breakdown:
+
+1. **Functions as First-Class Objects:**
+   In Python, functions are first-class objects, meaning they can be passed around and used as arguments, just like any other object (e.g., integers, strings).
+
+2. **Decorator Basics:**
+   - A decorator is a function that takes another function (or method) as input.
+   - It usually performs some additional processing or modification to the input function.
+   - The decorated function is then returned or assigned to a new name.
+
+3. **Syntax:**
+   ```python
+   @decorator
+   def my_function():
+       # function body
+   ```
+
+   This is equivalent to:
+   ```python
+   def my_function():
+       # function body
+   my_function = decorator(my_function)
+   ```
+
+4. **Common Use Cases:**
+   - **Authorization/Authentication:** Allowing or denying access to a function based on certain conditions (e.g., user roles).
+   - **Logging:** Logging information before or after the execution of a function.
+   - **Timing:** Measuring the time taken by a function to execute.
+   - **Memoization:** Caching results of expensive function calls for optimization.
+
+5. **Creating Decorators:**
+   - Decorators are created using functions or classes.
+   - They often include a wrapper function that defines the additional behavior.
+
+   Example using a function:
+   ```python
+   def my_decorator(func):
+       def wrapper():
+           print("Something is happening before the function is called.")
+           func()
+           print("Something is happening after the function is called.")
+       return wrapper
+
+   @my_decorator
+   def say_hello():
+       print("Hello!")
+
+   say_hello()
+   ```
+
+   Example using a class:
+   ```python
+   class MyDecorator:
+       def __init__(self, func):
+           self.func = func
+
+       def __call__(self, *args, **kwargs):
+           print("Something is happening before the function is called.")
+           self.func(*args, **kwargs)
+           print("Something is happening after the function is called.")
+
+   @MyDecorator
+   def say_hello():
+       print("Hello!")
+
+   say_hello()
+   ```
+
+Remember, decorators provide a clean and reusable way to extend or modify the behavior of functions without modifying their actual code. 
+They are widely used in Python for various purposes and contribute to code modularity and readability.

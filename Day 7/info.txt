@@ -1,0 +1,35 @@
+Here's a simple example of how to connect to a MySQL database and perform a query:
+
+```python
+import mysql.connector
+
+# Replace these with your own database information
+host = "your_database_host"
+user = "your_username"
+password = "your_password"
+database = "your_database_name"
+
+# Establish the connection
+connection = mysql.connector.connect(
+    host=host,
+    user=user,
+    password=password,
+    database=database
+)
+
+# Create a cursor object to interact with the database
+cursor = connection.cursor()
+
+# Example: execute a query
+cursor.execute("SELECT * FROM your_table_name")
+
+# Fetch all the rows
+result = cursor.fetchall()
+
+# Display the results
+for row in result:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+connection.close()

@@ -1,0 +1,24 @@
+The Singleton Pattern is a design pattern that ensures a class has only one instance and provides a global point of access to that instance. In Python, you can implement
+the Singleton Pattern by defining a class with a method that creates an instance of the class if it doesn't exist, and returns the existing instance if it does.
+
+Here's a simple example in Python:
+
+python
+Copy code
+class Singleton:
+    _instance = None  # Private variable to store the instance
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Singleton, cls).__new__(cls)
+        return cls._instance
+
+# Example usage:
+singleton_instance1 = Singleton()
+singleton_instance2 = Singleton()
+
+print(singleton_instance1 is singleton_instance2)  # Output: True
+In this example, the __new__ method is overridden to create an instance only if _instance is None. If an instance already exists, it returns the existing instance. 
+This ensures that there is only one instance of the class.
+
+When you create multiple instances (like singleton_instance1 and singleton_instance2 in the example), they refer to the same object, demonstrating the Singleton Pattern.

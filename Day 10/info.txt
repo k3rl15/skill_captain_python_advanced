@@ -1,0 +1,135 @@
+The `os` module in Python provides a way to interact with the operating system, allowing you to perform various operating system-related 
+tasks such as file and directory manipulation, process management, and environment variable access. It is part of the standard library, 
+meaning it comes pre-installed with Python.
+
+Here are some commonly used functions from the `os` module:
+
+1. **`os.getcwd()`**: Get the current working directory as a string.
+
+    ```python
+    import os
+
+    # Get the current working directory
+    current_directory = os.getcwd()
+    print(current_directory)
+    ```
+
+2. **`os.chdir(path)`**: Change the current working directory to the specified path.
+
+    ```python
+    import os
+
+    # Change the current working directory
+    os.chdir('/path/to/new/directory')
+    ```
+
+3. **`os.listdir(path='.')`**: Return a list containing the names of the entries in the given directory.
+
+    ```python
+    import os
+
+    # List files and directories in the current directory
+    contents = os.listdir()
+    print(contents)
+    ```
+
+4. **`os.mkdir(path)`**: Create a new directory at the specified path.
+
+    ```python
+    import os
+
+    # Create a new directory
+    os.mkdir('new_directory')
+    ```
+
+5. **`os.remove(path)`**: Remove a file.
+
+    ```python
+    import os
+
+    # Remove a file
+    os.remove('file_to_remove.txt')
+    ```
+
+6. **`os.rmdir(path)`**: Remove a directory.
+
+    ```python
+    import os
+
+    # Remove an empty directory
+    os.rmdir('directory_to_remove')
+    ```
+
+7. **`os.path.join(path1[, path2[, ...]])`**: Join one or more path components intelligently.
+
+    ```python
+    import os
+
+    # Join path components
+    full_path = os.path.join('/path/to', 'some', 'file.txt')
+    ```
+
+8. **`os.path.exists(path)`**: Return `True` if the path exists, `False` otherwise.
+
+    ```python
+    import os
+
+    # Check if a path exists
+    if os.path.exists('some_file.txt'):
+        print('The file exists.')
+    else:
+        print('The file does not exist.')
+    ```
+
+These are just a few examples, and the `os` module provides many more functions for interacting with the operating system. 
+It's a versatile tool for tasks involving file and directory manipulation, path handling, and more.
+
+
+`shutil` is a Python module that provides a higher-level interface for file operations. It stands for "shell utility" and is part of the standard library, 
+which means it comes pre-installed with Python.
+
+The `shutil` module includes functions to perform various file operations, such as copying, moving, and deleting files and directories. It aims to provide a 
+simple and consistent interface for common file-related tasks.
+
+Here are some commonly used functions from the `shutil` module:
+
+1. **`shutil.copy(src, dst, *, follow_symlinks=True)`**: Copy the file at the path `src` to the destination `dst`. If `dst` specifies a directory, the file will 
+be copied into that directory with the same filename. If `dst` specifies a file path, the file will be copied to that exact path.
+
+    ```python
+    import shutil
+
+    # Copy a file to another location
+    shutil.copy('file.txt', 'backup/file.txt')
+    ```
+
+2. **`shutil.move(src, dst, copy_function=copy2)`**: Recursively move a file or directory to another location. Unlike `shutil.copy`, `shutil.move` can move 
+directories and also handles moving files across different file systems.
+
+    ```python
+    import shutil
+
+    # Move a file to another location
+    shutil.move('file.txt', 'new_location/file.txt')
+    ```
+
+3. **`shutil.rmtree(path, ignore_errors=False, onerror=None)`**: Remove a directory and its contents recursively.
+
+    ```python
+    import shutil
+
+    # Remove a directory and its contents
+    shutil.rmtree('directory_to_remove')
+    ```
+
+4. **`shutil.rmtree(path, ignore_errors=False, onerror=None)`**: Remove a file.
+
+    ```python
+    import shutil
+
+    # Remove a file
+    shutil.remove('file_to_remove.txt')
+    ```
+
+These are just a few examples, and the `shutil` module provides several other functions for various file operations. It's a convenient tool for working with files and 
+directories in a Python script.
